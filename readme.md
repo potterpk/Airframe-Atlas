@@ -16,22 +16,5 @@ An interactive atlas of airliner history: lineage, specifications, and true-scal
 - Filter by manufacturer, search, and deep links (e.g. `aircraft.html#b747`).
 - Light and dark themes.
 
-## Run it
-No build step and no dependencies. Open `index.html` in a browser, or enable GitHub Pages on the repo (Settings → Pages → deploy from branch). Shared aircraft data, drawings, and styles live in `aircraft-data.js`, `aircraft-drawings.js`, and `styles.css`.
-
-## Adding an aircraft
-Add an object to the `A` array in `aircraft-data.js`. Key fields:
-
-| Field | Meaning |
-|---|---|
-| `id`, `g` | Unique id; group (`boeing`, `douglas`, `airbus`, …) |
-| `ff`, `eis`, `end` | First flight date, service-entry year, production-end year (`null` if ongoing) |
-| `st` | `prod`, `cert`, `ended` or `retired` |
-| `len`, `span`, `h`, `dia` | Length, span, height, fuselage width (metres) |
-| `sw` | Wing leading-edge sweep (degrees) |
-| `lay` | Engine layout: `wing2`, `wing4`, `rear2`, `tri727`, `tric`, `prop2`, `prop4`, `buried4`, `concorde` |
-| `tt`, `hump`, `trifin`, `fold` | T-tail, 747-style hump, triple tail, folded span |
-| `pred` | `[[id, "d" or "i"]]`: direct derivative or shared parts/concept |
-
 ## Notes
 The outlines are approximations for comparison, not engineering drawings. Specs are typical published figures for the variant named on each sheet. Where a figure wasn't verified, it's shown as "—".
