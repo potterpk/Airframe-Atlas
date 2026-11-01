@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Aircraft history, specifications, and same-scale three-view outlines.">
+<title>Aircraft — Airframe Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="aircraft">
+<main class="wrap">
+  <header class="site-header">
+    <a class="wordmark" href="index.html">AIRFRAME <span>ATLAS</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Explore</a>
+      <a href="timeline.html">Lineage</a>
+      <a class="active" href="aircraft.html#b747" aria-current="page">Aircraft</a>
+      <a href="compare.html">Compare</a>
+    </nav>
+  </header>
+  <section class="page-intro compact-intro">
+    <div><p class="eyebrow">Aircraft archive</p><h1>One aircraft, one story.</h1></div>
+    <label class="picker-label" for="aircraftPicker">Select aircraft
+      <select id="aircraftPicker" aria-label="Select aircraft"></select>
+    </label>
+  </section>
+  <section class="panel detail" aria-live="polite">
+    <div class="views">
+      <div class="vhead"><span class="vlab">Plan view · true scale</span></div>
+      <svg id="vTop" viewBox="-42 -3 84 86" role="img" aria-label="Plan view"></svg>
+      <span class="vlab">Side view</span>
+      <svg id="vSide" viewBox="-2 -27 84 29.5" role="img" aria-label="Side view"></svg>
+      <span class="vlab">Front view</span>
+      <svg id="vFront" viewBox="-42 -27 84 29.5" role="img" aria-label="Front view"></svg>
+      <p class="disclaim">Outlines are generated from length, span, height, fuselage width and wing sweep. Proportions are close; details such as fairings, flaps and exact fin shape are simplified. Not an engineering drawing.</p>
+    </div>
+    <div class="info" id="info"></div>
+  </section>
+  <footer>Dates are first flight and first airline service. Specifications are for the variant named on each sheet and are typical published figures; a dash means the figure was left out rather than guessed. Built counts are approximate.</footer>
+</main>
+<script src="aircraft-data.js"></script>
+<script src="aircraft-drawings.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

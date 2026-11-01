@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore airliner history through aircraft lineages, published specifications, and same-scale blueprint views.">
+<title>Airframe Atlas — Explore airliner history</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+<main class="wrap">
+  <header class="site-header">
+    <a class="wordmark" href="index.html">AIRFRAME <span>ATLAS</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="active" href="index.html" aria-current="page">Explore</a>
+      <a href="timeline.html">Lineage</a>
+      <a href="aircraft.html#b747">Aircraft</a>
+      <a href="compare.html">Compare</a>
+    </nav>
+  </header>
+  <section class="home-hero">
+    <p class="eyebrow">A field guide to the passenger aircraft age</p>
+    <h1>Every aircraft has a story.<br><span>Follow the shape of flight.</span></h1>
+    <p class="sub">Trace the designs that changed air travel, explore their family trees, and see how they measure up in true-scale blueprint views.</p>
+    <div class="hero-actions">
+      <a class="button-link" href="timeline.html">Explore the lineage <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="compare.html">Compare aircraft</a>
+    </div>
+    <div class="stats" id="stats" aria-label="Atlas statistics"></div>
+  </section>
+  <section class="home-section">
+    <div class="section-heading">
+      <div><p class="eyebrow">Choose your route</p><h2>Explore the atlas</h2></div>
+      <a href="timeline.html">View all aircraft →</a>
+    </div>
+    <div class="explore-grid">
+      <a class="explore-card" href="timeline.html"><span class="card-index">01 / LINEAGE</span><strong>Follow the family tree</strong><span>See when aircraft first flew, how long they were built, and which designs led to others.</span><b aria-hidden="true">↗</b></a>
+      <a class="explore-card" href="aircraft.html#b747"><span class="card-index">02 / AIRCRAFT</span><strong>Open a spec sheet</strong><span>Read the story, specifications, and blueprint views for each aircraft.</span><b aria-hidden="true">↗</b></a>
+      <a class="explore-card" href="compare.html"><span class="card-index">03 / COMPARISON</span><strong>Put two aircraft side by side</strong><span>Overlay same-scale outlines and compare dimensions across three views.</span><b aria-hidden="true">↗</b></a>
+    </div>
+  </section>
+  <section class="home-section">
+    <div class="section-heading">
+      <div><p class="eyebrow">Four points of departure</p><h2>Pick a plane</h2></div>
+      <a href="timeline.html">Browse the timeline →</a>
+    </div>
+    <div class="featured-grid" id="featuredAircraft"></div>
+  </section>
+  <footer>Aircraft specifications are typical published figures for the variant named on each sheet. Blueprint outlines are generated from published dimensions and are not engineering drawings.</footer>
+</main>
+<script src="aircraft-data.js"></script>
+<script src="aircraft-drawings.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

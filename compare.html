@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Compare airliner dimensions and true-scale three-view outlines.">
+<title>Compare aircraft — Airframe Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="compare">
+<main class="wrap">
+  <header class="site-header">
+    <a class="wordmark" href="index.html">AIRFRAME <span>ATLAS</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Explore</a>
+      <a href="timeline.html">Lineage</a>
+      <a href="aircraft.html#b747">Aircraft</a>
+      <a class="active" href="compare.html" aria-current="page">Compare</a>
+    </nav>
+  </header>
+  <section class="page-intro">
+    <p class="eyebrow">Same scale, different generations</p>
+    <h1>Aircraft face-off</h1>
+    <p class="sub">Choose two aircraft to compare their outlines and published dimensions. The dashed amber drawing is the second aircraft.</p>
+  </section>
+  <section class="panel compare-panel">
+    <div class="compare-controls">
+      <label for="compareLeft">Aircraft A<select id="compareLeft"></select></label>
+      <span class="versus">VS</span>
+      <label for="compareRight">Aircraft B<select id="compareRight"></select></label>
+    </div>
+    <div class="views">
+      <div class="compare-readout" id="compareReadout" aria-live="polite" hidden></div>
+      <span class="vlab">Plan view · same scale</span>
+      <svg id="vTop" viewBox="-42 -3 84 86" role="img" aria-label="Overlaid plan views"></svg>
+      <span class="vlab">Side view</span>
+      <svg id="vSide" viewBox="-2 -27 84 29.5" role="img" aria-label="Overlaid side views"></svg>
+      <span class="vlab">Front view</span>
+      <svg id="vFront" viewBox="-42 -27 84 29.5" role="img" aria-label="Overlaid front views"></svg>
+      <p class="disclaim">Outlines are generated from published dimensions and simplified for comparison. Not engineering drawings.</p>
+    </div>
+  </section>
+  <footer>Shareable comparisons are encoded in the page URL, so you can link directly to an aircraft pairing.</footer>
+</main>
+<script src="aircraft-data.js"></script>
+<script src="aircraft-drawings.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

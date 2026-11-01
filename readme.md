@@ -1,20 +1,26 @@
 # Airframe Atlas
 
-An interactive atlas of airliner history: lineage, specs and true-scale three-view outlines, all in one page.
+An interactive atlas of airliner history: lineage, specifications, and true-scale three-view outlines across a set of focused pages.
+
+## Pages
+- **Explore (`index.html`).** Start here for the atlas overview and featured aircraft.
+- **Lineage (`timeline.html`).** Filter and search the timeline, then open an aircraft sheet.
+- **Aircraft (`aircraft.html#b747`).** Browse a spec sheet, history, lineage, and three-view outline.
+- **Compare (`compare.html`).** Overlay two aircraft in three views and compare their dimensions. The selected pair is stored in the URL.
 
 ## Features
 - **Lineage chart.** 40 airliners from the Boeing 247 (1933) to the 777X. Each bar runs from first flight to end of production, with entry-into-service markers and arrows showing which design led to which.
 - **Spec sheets.** Dates, build counts, dimensions, seats, range, cruise speed, engines and a short history for each type.
-- **Blueprint panel.** Plan, side and front outlines generated from published dimensions. Every aircraft is drawn at the same scale, and you can overlay one aircraft on another to compare them.
+- **Blueprint panel.** Plan, side and front outlines generated from published dimensions. Every aircraft is drawn at the same scale; the Compare page overlays a second aircraft in all three views and compares length, wingspan and height side by side.
 - **Archive links.** Searches for public-domain three-view drawings on Wikimedia Commons and NASA's Technical Reports Server.
-- Filter by manufacturer, search, and deep links (e.g. `index.html#b747`).
+- Filter by manufacturer, search, and deep links (e.g. `aircraft.html#b747`).
 - Light and dark themes.
 
 ## Run it
-No build step and no dependencies. Open `index.html` in a browser, or enable GitHub Pages on the repo (Settings → Pages → deploy from branch).
+No build step and no dependencies. Open `index.html` in a browser, or enable GitHub Pages on the repo (Settings → Pages → deploy from branch). Shared aircraft data, drawings, and styles live in `aircraft-data.js`, `aircraft-drawings.js`, and `styles.css`.
 
 ## Adding an aircraft
-Add an object to the `A` array in `index.html`. Key fields:
+Add an object to the `A` array in `aircraft-data.js`. Key fields:
 
 | Field | Meaning |
 |---|---|
