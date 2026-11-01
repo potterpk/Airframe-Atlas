@@ -2,12 +2,6 @@
 
 An interactive atlas of airliner history: lineage, specifications, and true-scale three-view outlines across a set of focused pages.
 
-## Pages
-- **Explore (`index.html`).** Start here for the atlas overview and featured aircraft.
-- **Lineage (`timeline.html`).** Filter and search the timeline, then open an aircraft sheet.
-- **Aircraft (`aircraft.html#b747`).** Browse a spec sheet, history, lineage, and three-view outline.
-- **Compare (`compare.html`).** Overlay two aircraft in three views and compare their dimensions. The selected pair is stored in the URL.
-
 ## Features
 - **Lineage chart.** 40 airliners from the Boeing 247 (1933) to the 777X. Each bar runs from first flight to end of production, with entry-into-service markers and arrows showing which design led to which.
 - **Spec sheets.** Dates, build counts, dimensions, seats, range, cruise speed, engines and a short history for each type.
