@@ -32,6 +32,13 @@
       <span class="versus">VS</span>
       <label for="compareRight">Aircraft B<select id="compareRight"></select></label>
     </div>
+    <div class="saved-comparisons">
+      <div class="saved-actions">
+        <button class="button-link save-button" id="saveComparison" type="button">Save this comparison</button>
+        <p id="apiStatus" class="api-status" role="status" aria-live="polite"></p>
+      </div>
+      <div id="savedComparisonList" class="saved-list" aria-live="polite"></div>
+    </div>
     <div class="views">
       <div class="compare-readout" id="compareReadout" aria-live="polite" hidden></div>
       <span class="vlab">Plan view · same scale</span>

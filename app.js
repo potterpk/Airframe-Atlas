@@ -215,6 +215,9 @@ function renderComparison(a, b) {
 function initCompare() {
   const leftSelect = document.getElementById("compareLeft");
   const rightSelect = document.getElementById("compareRight");
+  const saveButton = document.getElementById("saveComparison");
+  const status = document.getElementById("apiStatus");
+  const savedList = document.getElementById("savedComparisonList");
   const params = new URLSearchParams(location.search);
   const left = byId[params.get("left")] ? params.get("left") : "b747";
   const right = byId[params.get("right")] ? params.get("right") : "a380";
@@ -232,9 +235,71 @@ function initCompare() {
     next.searchParams.set("right", b.id);
     history.replaceState(null, "", next);
   }
+  async function loadSavedComparisons() {
+    try {
+      const response = await fetch("/api/comparisons");
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Could not load saved comparisons.");
+      savedList.innerHTML = payload.length
+        ? payload.map(item => {
+          const a = byId[item.left_aircraft], b = byId[item.right_aircraft];
+          return `<div class="saved-item">
+            <a href="compare.html?left=${encodeURIComponent(item.left_aircraft)}&right=${encodeURIComponent(item.right_aircraft)}">${esc(a.name)} <span>vs</span> ${esc(b.name)}</a>
+            <button type="button" class="remove-saved" data-delete="${item.id}" aria-label="Remove saved comparison">Remove</button>
+          </div>`;
+        }).join("")
+        : `<p class="saved-empty">No saved comparisons yet.</p>`;
+      saveButton.disabled = false;
+    } catch (error) {
+      status.textContent = `Backend unavailable: ${error.message}. Start the server with python server.py.`;
+      saveButton.disabled = true;
+    }
+  }
+  saveButton.addEventListener("click", async () => {
+    const left = leftSelect.value, right = rightSelect.value;
+    if (left === right) {
+      status.textContent = "Choose two different aircraft before saving.";
+      return;
+    }
+    saveButton.disabled = true;
+    status.textContent = "Saving comparison…";
+    try {
+      const response = await fetch("/api/comparisons", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ left_aircraft: left, right_aircraft: right })
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Could not save this comparison.");
+      status.textContent = "Comparison saved.";
+      await loadSavedComparisons();
+    } catch (error) {
+      status.textContent = `Could not save comparison: ${error.message}`;
+      saveButton.disabled = false;
+    }
+  });
+  savedList.addEventListener("click", async event => {
+    const button = event.target.closest("[data-delete]");
+    if (!button) return;
+    button.disabled = true;
+    status.textContent = "Removing saved comparison…";
+    try {
+      const response = await fetch(`/api/comparisons/${encodeURIComponent(button.dataset.delete)}`, {
+        method: "DELETE"
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Could not remove this comparison.");
+      status.textContent = "Saved comparison removed.";
+      await loadSavedComparisons();
+    } catch (error) {
+      status.textContent = `Could not remove comparison: ${error.message}`;
+      button.disabled = false;
+    }
+  });
   leftSelect.addEventListener("change", update);
   rightSelect.addEventListener("change", update);
   update();
+  loadSavedComparisons();
 }
 
 function initHome() {

@@ -163,6 +163,18 @@ footer{font-size:12px;color:var(--muted);max-width:90ch}
 .compare-controls{display:flex;align-items:end;justify-content:center;gap:16px;flex-wrap:wrap;padding:16px;border-bottom:1px solid var(--line)}
 .versus{font:600 12px var(--font-mono);color:var(--muted);padding-bottom:8px}
 .compare-panel .compare-readout{max-width:760px;margin:0 auto 8px;width:100%}
+.saved-comparisons{display:grid;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.saved-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.save-button{border:0;font:600 13px var(--font-body);cursor:pointer}
+.save-button:disabled{opacity:.55;cursor:not-allowed}
+.api-status,.saved-empty{font-size:13px;color:var(--muted);margin:0}
+.saved-list{display:grid;gap:6px}
+.saved-item{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:6px}
+.saved-item>a{font-size:14px;font-weight:600;text-decoration:none}
+.saved-item>a span{font:500 11px var(--font-mono);color:var(--muted);text-transform:uppercase}
+.remove-saved{font:500 12px var(--font-body);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:3px;padding:3px 8px;cursor:pointer}
+.remove-saved:hover{border-color:var(--warn);color:var(--warn)}
+.remove-saved:disabled{opacity:.55;cursor:not-allowed}
 @media(max-width:760px){
   .explore-grid{grid-template-columns:1fr}
   .explore-card{min-height:120px}
